@@ -5,6 +5,7 @@ import glob
 import shutil
 
 sessions_path = "C:\\Users\\lee\\OneDrive\\Documents\\SecureCRT\\Config.personal\\Sessions\\"
+scrt = "C:\\Program Files\\VanDyke Software\\SecureCRT\\SecureCRT.exe"
 desktop = Path(winshell.desktop())
 outpath = str(desktop / "scrt")
 sessions = glob.glob(sessions_path + r"\**", recursive=True)
@@ -24,7 +25,6 @@ directories = list(set(directories))
 for d in directories:
     Path(d).mkdir(parents=True, exist_ok=True)
 
-scrt = "C:\\Program Files\\VanDyke Software\\SecureCRT\\SecureCRT.exe"
 for session in sessions:
     args = '/T /S "' + session + '"'
     link_filepath = outpath + "\\" + session + ".lnk"
