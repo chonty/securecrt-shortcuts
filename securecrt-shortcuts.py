@@ -7,11 +7,15 @@ import shutil
 sessions_path = "C:\\Users\\lee\\OneDrive\\Documents\\SecureCRT\\Config.personal\\Sessions\\"
 scrt = "C:\\Program Files\\VanDyke Software\\SecureCRT\\SecureCRT.exe"
 desktop = Path(winshell.desktop())
+# IMPORTANT!!!! DO NOT RUN UNTIL YOU ENSURE THAT outpath (BELOW) IS A NEW, UNUSED DIRECTORY!
 outpath = str(desktop / "scrt")
 sessions = glob.glob(sessions_path + r"\**", recursive=True)
 sessions = [x for x in sessions if x.endswith(".ini")]
 directories = []
 
+# IMPORTANT!!!! DO NOT RUN UNTIL YOU ENSURE THAT outpath IS A NEW, UNUSED DIRECTORY!
+# THIS LAZY APPROACH AT STAYING IN SYNC WILL REMOVE EVERYTHING!
+# Alternatively, comment/remove the line
 shutil.rmtree(outpath, ignore_errors=True)
 
 for i in range(len(sessions)):
